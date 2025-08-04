@@ -1,0 +1,117 @@
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    /*font: 'Nunito', sans-serif;*/
+    background-image: linear-gradient(#240b36, #1ab3de);
+    color: #f8f8f8;
+    line-height: 1.6;
+    min-height: 100vh;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+body h1 {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 65px;
+    color: #BCC6CC;
+    background: linear-gradient(to bottom, #dbdbdb, #f9f9f9, #dbdbdb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal-width columns */
+    gap: 30px; /* Space between the cards */
+    max-width: 1000px; /* Max width to keep it centered on large screens */
+    margin: 100px auto;
+}
+
+.character-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: visible; /* Hides any content that overflows the border radius */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    background-color: #fff;
+    position: relative;
+    
+    /* The transition makes the hover effect smooth */
+    transition: all 0.3s ease;
+}
+
+.character-image {
+    width: 100%;
+    height: auto;
+    display: block; /* Removes extra space below the image */
+    transition: opacity 0.3s ease;
+}
+
+.character-info {
+    padding: 15px;
+}
+
+.character-name {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: #333;
+}
+
+.character-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Transition for the fade in */
+}
+
+.character-details p {
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* The key part: When the card is hovered, show the details */
+/* .character-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+} */
+
+.character-card:hover .character-image {
+    opacity: 0.3; /* Fade the image */
+}
+
+.character-card:hover .character-details {
+    opacity: 0.8;
+    max-height: 465px; /* An arbitrary height larger than the content */
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    
+}
